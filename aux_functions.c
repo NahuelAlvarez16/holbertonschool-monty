@@ -1,22 +1,17 @@
 #include "monty.h"
 /**
- * get_print_function - Match chars with functions
- * @c: A char value
+ * get_opcode_function - Match chars with functions
+ * @opcode: A string of opcode
  * Return: A pointer to a function
  */
-void (*get_opcode_function(char *opcode))(stack_t **stack, unsigned int line_number)
+void (*get_opcode_function(char *opcode))(stack_t **, unsigned int)
 {
 	int i = 0;
 	instruction_t cases[] = {
 		{"push", _push},
 		{"pall", _pall},
-	/*	{"pint", print_string_hexadecimal},
-		{"pop", print_integer},
-		{"swap", print_integer},
-		{"add", print_binary},
-		{"nop", print_unsigned_integer},*/
 	};
-	
+
 	while (i < 2)
 	{
 		if (_strcmp(cases[i].opcode, opcode) == 0)
@@ -60,46 +55,6 @@ int _strcmp(char *s1, char *s2)
 	}
 	return (0);
 }
-
-/**
-* generate_arguments - generates an array with the given arguments
-* @s: strings variable to tokenize
-* @delimeters: bounding parameters
-* Return: full array
-*/
-char **generate_arguments(char *s, char *delimeters)
-{
-	char **args;
-	int i = 0;
-	int length = 0;
-	char *s_tmp;
-	char *token;
-
-	s_tmp = _strdup(s);
-	token = strtok(s_tmp, delimeters);
-	for (length = 0; token; length++)
-	{
-		token = strtok(NULL, delimeters);
-	}
-	free(s_tmp);
-	args = malloc(sizeof(char *) * (length + 1));
-	if (args == NULL)
-	{
-		return (NULL);
-	}
-
-	s_tmp = _strdup(s);
-	token = strtok(s_tmp, delimeters);
-	for (i = 0; token; i++)
-	{
-		args[i] = _strdup(token);
-		token = strtok(NULL, delimeters);
-	}
-	args[i] = NULL;
-	free(s_tmp);
-	return (args);
-}
-
 /**
  * _strdup - pointer to a newly allocated space in memory
  * @str: string
@@ -130,6 +85,11 @@ char *_strdup(char *str)
 	return (temp);
 }
 
+/**
+ * is_digit - Verify all characters in a string are digits.
+ * @number: Number of string type
+ * Return: 1 - Is digit | 0 - Isn't digit
+ */
 int is_digit(char *number)
 {
 	int i;
