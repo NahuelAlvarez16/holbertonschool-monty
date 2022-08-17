@@ -57,5 +57,6 @@ void (*get_opcode_function(char *opcode))(stack_t **stack, unsigned int line_num
 int _strlen(const char *s);
 int _strcmp(char *s1, char *s2);
 char **generate_arguments(char *s, char *delimeters);
+char *_strdup(char *str);
 
 #endif
