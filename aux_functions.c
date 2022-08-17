@@ -131,3 +131,19 @@ char *_strdup(char *str)
 	temp[i] = '\0';
 	return (temp);
 }
+
+int is_digit(char *number)
+{
+	int i;
+
+	if (!number)
+		retun(0);
+
+	for (i = 0; number[i];i++)
+	{
+		if (number < '0' || number > '9')
+			return (0);
+	}
+
+	return (1);
+}

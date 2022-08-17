@@ -59,5 +59,6 @@ int _strlen(const char *s);
 int _strcmp(char *s1, char *s2);
 char **generate_arguments(char *s, char *delimeters);
 char *_strdup(char *str);
+int is_digit(char *number);
 
 #endif
