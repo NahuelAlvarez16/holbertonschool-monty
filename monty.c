@@ -34,6 +34,10 @@ int main(int argc, char **argv)
 		}
 		line_number++;
 		opcode = strtok(line_content, " \t\n$");
+		if (!opcode)
+		{
+			continue;
+		}
 		if (_strcmp(opcode, "push") == 0)
 		{
 			new_list_number = strtok(NULL, " \t\n$");
