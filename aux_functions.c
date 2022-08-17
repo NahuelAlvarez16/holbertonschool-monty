@@ -96,10 +96,13 @@ int is_digit(char *number)
 
 	if (!number)
 		return (0);
-
-	for (i = 0; number[i]; i++)
+	if ((number[0] < '0' || number[0] > '9') && number[0] != '-')
 	{
-		if (number[i] < '0' || number[i] > '9')
+		return (0);
+	}
+	for (i = 1; number[i]; i++)
+	{
+		if ((number[i] < '0' || number[i] > '9'))
 			return (0);
 	}
 
