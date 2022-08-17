@@ -4,7 +4,7 @@
  * @h: pointer to stack_t
  * Return: n of nodes
  */
-size_t print_list(const stack_t *h)
+size_t print_list(stack_t **stack, unsigned int line_number)
 {
 	size_t counter = 0;
 
@@ -23,7 +23,7 @@ size_t print_list(const stack_t *h)
  * @n: int
  * Return: address of node
  */
-stack_t *add_node(stack_t **head, const int n)
+stack_t *add_node(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
 
@@ -51,7 +51,7 @@ stack_t *add_node(stack_t **head, const int n)
  * @head: pointer of stack_t
  * Return: nothing
  */
-void free_list(stack_t *head)
+void free_list(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
 
@@ -68,7 +68,7 @@ void free_list(stack_t *head)
  * @head: pointer of list
  * Return: counter
  */
-int sum_two_int(stack_t *head)
+int sum_two_int(stack_t **stack, unsigned int line_number)
 {
 	int counter = 0;
 

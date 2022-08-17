@@ -47,13 +47,15 @@ typedef struct instruction_s
 /*--PROTOTYPS--*/
 
 /*List Functions*/
-size_t print_list(const stack_t *h);
-stack_t *add_node(stack_t **head, const int n);
-void free_list(stack_t *head);
-int sum_two_int(stack_t *head);
+size_t print_list(stack_t **stack, unsigned int line_number);
+stack_t *add_node(stack_t **stack, unsigned int line_number);
+void free_list(stack_t **stack, unsigned int line_number);
+int sum_two_int(stack_t **stack, unsigned int line_number);
 
 /*Auxiliary Functions*/
 void (*get_opcode_function(char *opcode))(stack_t **stack, unsigned int line_number);
 int _strlen(const char *s);
+int _strcmp(char *s1, char *s2);
+char **generate_arguments(char *s, char *delimeters);
 
 #endif
