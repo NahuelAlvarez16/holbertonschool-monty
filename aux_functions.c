@@ -8,8 +8,8 @@ void (*get_opcode_function(char *opcode))(stack_t **stack, unsigned int line_num
 {
 	int i = 0;
 	instruction_t cases[] = {
-		{"push", add_node},
-		{"pall", print_list},
+		{"push", _push},
+		{"pall", _pall},
 	/*	{"pint", print_string_hexadecimal},
 		{"pop", print_integer},
 		{"swap", print_integer},
@@ -25,8 +25,6 @@ void (*get_opcode_function(char *opcode))(stack_t **stack, unsigned int line_num
 	}
 	return (NULL);
 }
-i
-
 /**
  * _strlen - function for determinate string longer
  * @s: is the string to count
@@ -137,11 +135,11 @@ int is_digit(char *number)
 	int i;
 
 	if (!number)
-		retun(0);
+		return (0);
 
-	for (i = 0; number[i];i++)
+	for (i = 0; number[i]; i++)
 	{
-		if (number < '0' || number > '9')
+		if (number[i] < '0' || number[i] > '9')
 			return (0);
 	}
 

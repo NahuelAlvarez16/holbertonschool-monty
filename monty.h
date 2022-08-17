@@ -4,11 +4,12 @@
 
 /*Includes to Functions*/
 #include <stdio.h>
-#include "lists.h"
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 
+/*--Global Variables--*/
+char *new_list_number;
 
 /*--STRUCTS--*/
 
@@ -48,8 +49,8 @@ typedef struct instruction_s
 /*--PROTOTYPS--*/
 
 /*List Functions*/
-size_t print_list(stack_t **stack, unsigned int line_number);
-stack_t *add_node(stack_t **stack, unsigned int line_number);
+void _pall(stack_t **stack, unsigned int line_number);
+void _push(stack_t **stack, unsigned int line_number);
 void free_list(stack_t **stack, unsigned int line_number);
 int sum_two_int(stack_t **stack, unsigned int line_number);
 
