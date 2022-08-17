@@ -2,7 +2,7 @@
 #define MONTY_H
 
 
-/*includes to functions*/
+/*Includes to Functions*/
 #include <stdio.h>
 #include "lists.h"
 #include <stdlib.h>
@@ -46,13 +46,14 @@ typedef struct instruction_s
 
 /*--PROTOTYPS--*/
 
-/*list functions*/
+/*List Functions*/
 size_t print_list(const stack_t *h);
-dlistint_t *add_node(stack_t **head, const int n);
+stack_t *add_node(stack_t **head, const int n);
 void free_list(stack_t *head);
 int sum_two_int(stack_t *head);
 
-/*func aux*/
+/*Auxiliary Functions*/
+void (*get_opcode_function(char *opcode))(stack_t **stack, unsigned int line_number);
 int _strlen(const char *s);
 
 #endif

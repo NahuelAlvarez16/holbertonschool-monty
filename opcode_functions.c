@@ -1,9 +1,7 @@
 #include "monty.h"
-
-
 /**
  * print_list - prints all elements of list
- * @h: pointer to dlistint_t
+ * @h: pointer to stack_t
  * Return: n of nodes
  */
 size_t print_list(const stack_t *h)
@@ -25,7 +23,7 @@ size_t print_list(const stack_t *h)
  * @n: int
  * Return: address of node
  */
-dlistint_t *add_node(stack_t **head, const int n)
+stack_t *add_node(stack_t **head, const int n)
 {
 	stack_t *new;
 
@@ -50,7 +48,7 @@ dlistint_t *add_node(stack_t **head, const int n)
 
 /**
  * free_list - free a list
- * @head: pointer of dlistint_t
+ * @head: pointer of stack_t
  * Return: nothing
  */
 void free_list(stack_t *head)
