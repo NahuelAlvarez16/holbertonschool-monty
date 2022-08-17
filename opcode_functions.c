@@ -5,7 +5,7 @@
  * @line_number: number of line
  * Return: void
  */
-void _pall(stack_t **stack, unsigned int line_number)
+void _pall(stack_t **stack, unsigned int __attribute__((unused))line_number)
 {
 	size_t counter = 0;
 	stack_t *h = *stack;
@@ -59,7 +59,7 @@ void _push(stack_t **stack, unsigned int line_number)
  * @line_number: number of line
  * Return: nothing
  */
-void free_list(stack_t **stack, unsigned int line_number)
+void free_list(stack_t **stack, unsigned int __attribute__((unused))line_number)
 {
 	stack_t *tmp;
 	stack_t *head = *stack;
@@ -78,7 +78,7 @@ void free_list(stack_t **stack, unsigned int line_number)
  * @line_number: number of line
  * Return: sum value of 2 integers
  */
-int sum_two_int(stack_t **stack, unsigned int line_number)
+int sum_two_int(stack_t **stack, unsigned int __attribute__((unused))line_number)
 {
 	int counter = 0;
 	stack_t *head = *stack;

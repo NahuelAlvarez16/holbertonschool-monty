@@ -8,8 +8,7 @@
 int main(int argc, char **argv)
 {
 	FILE *file;
-	char *line_content;
-	size_t len = 0;
+	char line_content[1024];
 	int line_number = 0;
 	char *opcode;
 	void (*opcode_function)(stack_t **stack, unsigned int line_number);
@@ -29,7 +28,7 @@ int main(int argc, char **argv)
 	while (1)
 	{
 
-		if (getline(&line_content, &len, file) == -1)
+		if (fgets(line_content, 1024, file) == NULL)
 		{
 			return (0);
 		}
