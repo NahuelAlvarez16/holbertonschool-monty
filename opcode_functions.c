@@ -1,8 +1,9 @@
 #include "monty.h"
 /**
  * _pall - prints all elements of list
- * @h: pointer to stack_t
- * Return: n of nodes
+ * @stack: pointer to a stack_t
+ * @line_number: number of line
+ * Return: void
  */
 void _pall(stack_t **stack, unsigned int line_number)
 {
@@ -19,9 +20,9 @@ void _pall(stack_t **stack, unsigned int line_number)
 
 /**
  * _push - adds node in the beginning
- * @head: double pointer of list
- * @n: int
- * Return: address of node
+ * @stack: pointer to a stack_t
+ * @line_number: number of line
+ * Return: void
  */
 void _push(stack_t **stack, unsigned int line_number)
 {
@@ -33,7 +34,7 @@ void _push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	
+
 	new = malloc(sizeof(stack_t));
 	if (!new)
 	{
@@ -53,8 +54,9 @@ void _push(stack_t **stack, unsigned int line_number)
 
 
 /**
- * free_list - free a list
- * @head: pointer of stack_t
+ * free_list - free the list
+ * @stack: pointer to a stack_t
+ * @line_number: number of line
  * Return: nothing
  */
 void free_list(stack_t **stack, unsigned int line_number)
@@ -72,13 +74,15 @@ void free_list(stack_t **stack, unsigned int line_number)
 
 /**
  * sum_two_int - sum data on 2 top
- * @head: pointer of list
- * Return: counter
+ * @stack: pointer to a stack_t
+ * @line_number: number of line
+ * Return: sum value of 2 integers
  */
 int sum_two_int(stack_t **stack, unsigned int line_number)
 {
 	int counter = 0;
 	stack_t *head = *stack;
+
 	while (counter < 2)
 	{
 		counter += head->n;
