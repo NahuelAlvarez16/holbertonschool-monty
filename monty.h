@@ -53,6 +53,7 @@ void _pall(stack_t **stack, unsigned int line_number);
 void _push(stack_t **stack, unsigned int line_number);
 void free_list(stack_t *head);
 int _add(stack_t **stack, unsigned int line_number);
+void _swap(stack_t **stack, unsigned int line_number);
 
 /*Auxiliary Functions*/
 void (*get_opcode_function(char *opcode))(stack_t **, unsigned int);

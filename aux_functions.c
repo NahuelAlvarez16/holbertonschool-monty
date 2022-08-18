@@ -10,9 +10,11 @@ void (*get_opcode_function(char *opcode))(stack_t **, unsigned int)
 	instruction_t cases[] = {
 		{"push", _push},
 		{"pall", _pall},
+		{"swap", _swap},
+		{NULL, NULL}
 	};
 
-	while (i < 2)
+	while (cases[i].opcode)
 	{
 		if (_strcmp(cases[i].opcode, opcode) == 0)
 			return (cases[i].f);
