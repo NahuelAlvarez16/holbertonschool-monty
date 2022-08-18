@@ -59,17 +59,22 @@ void _push(stack_t **stack, unsigned int line_number)
  * @stack: pointer to a stack_t
  * @line_number: number of line
  */
-int _add(stack_t **stack, unsigned int __attribute__((unused))line_number)
+void _add(stack_t **stack, unsigned int line_number)
 {
-	int counter = 0;
-	stack_t *head = *stack;
+	stack_t *stack_tmp;
 
-	while (counter < 2)
+	if (!(*stack)->next)
 	{
-		counter += head->n;
-		head = head->next;
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		free_list(*stack);
+		fclose(file);
+		exit(EXIT_FAILURE);
 	}
-	return (counter);
+	stack_tmp = *stack;
+	*stack = (*stack)->next;
+	(*stack)->n += stack_tmp->n;
+	(*stack)->prev = NULL;
+	free(stack_tmp);
 }
 /**
  * _swap - Swaps the top two elements of the stack

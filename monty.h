@@ -48,12 +48,11 @@ typedef struct instruction_s
 
 /*--PROTOTYPS--*/
 
-/*List Functions*/
+/*Opcode Functions*/
 void _pall(stack_t **stack, unsigned int line_number);
 void _push(stack_t **stack, unsigned int line_number);
-void free_list(stack_t *head);
-int _add(stack_t **stack, unsigned int line_number);
 void _swap(stack_t **stack, unsigned int line_number);
+void _add(stack_t **stack, unsigned int line_number);
 
 /*Auxiliary Functions*/
 void (*get_opcode_function(char *opcode))(stack_t **, unsigned int);
@@ -61,5 +60,6 @@ int _strlen(const char *s);
 int _strcmp(char *s1, char *s2);
 char *_strdup(char *str);
 int is_digit(char *number);
+void free_list(stack_t *head);
 
 #endif
