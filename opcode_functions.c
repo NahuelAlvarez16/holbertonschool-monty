@@ -87,7 +87,7 @@ void _swap(stack_t **stack, unsigned int line_number)
 
 	if (!(*stack) || !(*stack)->next)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		free_list(*stack);
 		fclose(file);
 		exit(EXIT_FAILURE);
