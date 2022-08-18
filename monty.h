@@ -9,7 +9,7 @@
 #include <ctype.h>
 
 /*--Global Variables--*/
-char *new_list_number;
+FILE *file;
 
 /*--STRUCTS--*/
 
@@ -51,7 +51,7 @@ typedef struct instruction_s
 /*List Functions*/
 void _pall(stack_t **stack, unsigned int line_number);
 void _push(stack_t **stack, unsigned int line_number);
-void free_list(stack_t **stack, unsigned int line_number);
+void free_list(stack_t *head);
 int sum_two_int(stack_t **stack, unsigned int line_number);
 
 /*Auxiliary Functions*/

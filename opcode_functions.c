@@ -27,49 +27,33 @@ void _pall(stack_t **stack, unsigned int __attribute__((unused))line_number)
 void _push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
-	stack_t **head = stack;
+	char *new_list_number;
 
+	new_list_number = strtok(NULL, " \n\t$");
 	if (!new_list_number || !is_digit(new_list_number))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		free_list(*stack);
+		fclose(file);
 		exit(EXIT_FAILURE);
 	}
-
 	new = malloc(sizeof(stack_t));
 	if (!new)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free_list(*stack);
+		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 
 	new->n = atoi(new_list_number);
-	new->next = *head;
+	new->next = *stack;
 	new->prev = NULL;
-	if ((*head) != NULL)
+	if ((*stack) != NULL)
 	{
-		(*head)->prev = new;
+		(*stack)->prev = new;
 	}
-	(*head) = new;
-}
-
-
-/**
- * free_list - free the list
- * @stack: pointer to a stack_t
- * @line_number: number of line
- * Return: nothing
- */
-void free_list(stack_t **stack, unsigned int __attribute__((unused))line_number)
-{
-	stack_t *tmp;
-	stack_t *head = *stack;
-
-	while (head)
-	{
-		tmp = head->next;
-		free(head);
-		head = tmp;
-	}
+	(*stack) = new;
 }
 
 /**
