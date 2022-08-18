@@ -63,7 +63,7 @@ void _add(stack_t **stack, unsigned int line_number)
 {
 	stack_t *stack_tmp;
 
-	if (!(*stack)->next)
+	if (!(*stack) || !(*stack)->next)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		free_list(*stack);
@@ -85,7 +85,7 @@ void _swap(stack_t **stack, unsigned int line_number)
 {
 	int n;
 
-	if (!(*stack)->next)
+	if (!(*stack) || !(*stack)->next)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		free_list(*stack);
