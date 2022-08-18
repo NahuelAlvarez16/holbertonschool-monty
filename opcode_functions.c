@@ -3,7 +3,6 @@
  * _pall - prints all elements of list
  * @stack: pointer to a stack_t
  * @line_number: number of line
- * Return: void
  */
 void _pall(stack_t **stack, unsigned int __attribute__((unused))line_number)
 {
@@ -22,7 +21,6 @@ void _pall(stack_t **stack, unsigned int __attribute__((unused))line_number)
  * _push - adds node in the beginning
  * @stack: pointer to a stack_t
  * @line_number: number of line
- * Return: void
  */
 void _push(stack_t **stack, unsigned int line_number)
 {
@@ -57,10 +55,9 @@ void _push(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * _add - sum data on 2 top
+ * _add - Adds the top two elements of the stack
  * @stack: pointer to a stack_t
  * @line_number: number of line
- * Return: sum value of 2 integers
  */
 void _add(stack_t **stack, unsigned int line_number)
 {
@@ -78,4 +75,24 @@ void _add(stack_t **stack, unsigned int line_number)
 	(*stack)->n += stack_tmp->n;
 	(*stack)->prev = NULL;
 	free(stack_tmp);
+}
+/**
+ * _swap - Swaps the top two elements of the stack
+ * @stack: pointer to a stack_t
+ * @line_number: number of line
+ */
+void _swap(stack_t **stack, unsigned int line_number)
+{
+	int n;
+
+	if (!(*stack)->next)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		free_list(*stack);
+		fclose(file);
+		exit(EXIT_FAILURE);
+	}
+	n = (*stack)->n;
+	(*stack)->n = (*stack)->next->n;
+	(*stack)->next->n = n;
 }

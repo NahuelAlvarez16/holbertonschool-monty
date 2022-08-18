@@ -51,6 +51,7 @@ typedef struct instruction_s
 /*Opcode Functions*/
 void _pall(stack_t **stack, unsigned int line_number);
 void _push(stack_t **stack, unsigned int line_number);
+void _swap(stack_t **stack, unsigned int line_number);
 void _add(stack_t **stack, unsigned int line_number);
 
 /*Auxiliary Functions*/
